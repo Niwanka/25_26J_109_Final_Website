@@ -46,11 +46,14 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <div className="md:w-1/2 flex justify-center relative">
-             <div className="w-72 h-72 md:w-96 md:h-96 bg-primary-400/20 rounded-full blur-3xl absolute animate-pulse"></div>
-             <div className="w-64 h-64 md:w-80 md:h-80 border-4 border-primary-300/30 rounded-3xl rotate-12 flex items-center justify-center backdrop-blur-sm shadow-2xl bg-white/10">
-                <Cpu className="w-32 h-32 text-primary-200" />
+          <div className="md:w-1/2 flex flex-col items-center justify-center relative mt-12 md:mt-0">
+             <div className="w-80 h-80 md:w-[32rem] md:h-[32rem] bg-primary-400/20 rounded-full blur-3xl absolute animate-pulse"></div>
+             <div className="w-72 h-72 md:w-[28rem] md:h-[28rem] rounded-[3rem] rotate-3 flex items-center justify-center overflow-hidden shadow-2xl border-4 border-white/20 relative z-10 transition-transform hover:rotate-0 duration-500">
+                <img src="/images/PD intro new.jpg" alt="NeuroLens Parkinson's Screening" className="w-full h-full object-cover" />
              </div>
+             <p className="text-xs text-primary-200/60 mt-6 italic z-10">
+               Artwork courtesy of Parkinson's Europe
+             </p>
           </div>
         </div>
       </section>
@@ -77,28 +80,35 @@ const Home = () => {
       {/* Team Preview Section */}
       <section className="py-24 px-6 bg-gray-50 border-y border-gray-100">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Meet the Team</h2>
-              <p className="text-gray-600 mt-2">The innovators behind NeuroLens</p>
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16">
+            <div className="max-w-2xl">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4 tracking-tight">Meet the Team</h2>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                A dedicated group of undergraduate researchers from SLIIT, combining expertise in TinyML, Mobile Development, and Backend Systems.
+              </p>
             </div>
-            <Link to="/about" className="mt-4 md:mt-0 text-primary-600 font-semibold flex items-center hover:underline">
-              Meet the Full Team <ArrowRight className="ml-1 w-4 h-4" />
+            <Link to="/about" className="mt-6 md:mt-0 text-primary-600 font-bold hover:text-primary-700 transition-colors flex items-center group">
+              Meet the Full Team <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform w-5 h-5" />
             </Link>
           </div>
-          <div className="flex flex-wrap gap-8 justify-center md:justify-start">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { name: 'Niwanka Pathirathna', role: 'Undergraduate Student' },
-              { name: 'Chanuthi Savithma', role: 'Undergraduate Student' },
-              { name: 'Yasasvi Vilochana', role: 'Undergraduate Student' },
-              { name: 'Sriharan Saravanan', role: 'Undergraduate Student' }
+              { name: 'Niwanka Pathirathna', role: 'Undergraduate Student', image: '/images/niwanka.png' },
+              { name: 'Chanuthi Savithma', role: 'Undergraduate Student', image: '/images/chanuthi.jpeg' },
+              { name: 'Yasasvi Vilochana', role: 'Undergraduate Student', image: '/images/yasasvi.jpeg' },
+              { name: 'Sriharan Saravanan', role: 'Undergraduate Student', image: '/images/sriharan.jpeg' }
             ].map((member) => (
-              <div key={member.name} className="flex flex-col items-center">
-                <div className="w-24 h-24 bg-primary-100 rounded-full flex items-center justify-center text-primary-700 text-2xl font-bold border-2 border-white shadow-md">
-                  {member.name.split(' ').map(n => n[0]).join('')}
+              <div key={member.name} className="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col items-center text-center">
+                <div className="w-32 h-32 bg-primary-50 rounded-full flex items-center justify-center text-primary-700 text-3xl font-bold border-4 border-white shadow-md overflow-hidden mb-6 group-hover:scale-105 transition-transform duration-300">
+                  {member.image ? (
+                    <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <span className="text-primary-200">{member.name.split(' ').map(n => n[0]).join('')}</span>
+                  )}
                 </div>
-                <p className="mt-4 font-bold text-gray-900 text-sm text-center">{member.name}</p>
-                <p className="text-gray-500 text-xs uppercase tracking-wider">{member.role}</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
+                <p className="text-primary-600 text-xs font-bold uppercase tracking-widest">{member.role}</p>
               </div>
             ))}
           </div>

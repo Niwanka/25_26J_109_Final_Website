@@ -8,7 +8,7 @@ const Milestones = () => {
     {
       name: 'Project Proposal',
       description: 'Defined the multimodal screening framework and identified key biomarkers (Kinematic, Voice, Wearable, Cognitive).',
-      date: 'March 2024',
+      date: 'September 2025',
       weightage: '10%',
       status: 'Completed',
       statusColor: 'text-green-600 bg-green-50'
@@ -16,7 +16,7 @@ const Milestones = () => {
     {
       name: 'Progress Presentation 1',
       description: 'Completed TinyML on-device 1D CNN training and integration with the ESP32 wearable sensor.',
-      date: 'June 2024',
+      date: 'January 2026',
       weightage: '20%',
       status: 'Completed',
       statusColor: 'text-green-600 bg-green-50'
@@ -24,7 +24,7 @@ const Milestones = () => {
     {
       name: 'Progress Presentation 2',
       description: 'Finalized drawing kinematic feature extraction and voice dual-path analysis (Acoustic + Linguistic).',
-      date: 'September 2024',
+      date: 'March 2026',
       weightage: '20%',
       status: 'Completed',
       statusColor: 'text-green-600 bg-green-50'
@@ -32,7 +32,7 @@ const Milestones = () => {
     {
       name: 'Final Presentation',
       description: 'Demonstration of the unified AUC-weighted risk fusion and cross-platform mobile application.',
-      date: 'November 2024',
+      date: 'May 2026',
       weightage: '40%',
       status: 'Upcoming',
       statusColor: 'text-primary-600 bg-primary-50'
@@ -40,7 +40,7 @@ const Milestones = () => {
     {
       name: 'Viva',
       description: 'Comprehensive defense of the NeuroLens methodology and validation against clinical datasets (PPMI).',
-      date: 'December 2024',
+      date: 'June 2026',
       weightage: '10%',
       status: 'Upcoming',
       statusColor: 'text-primary-600 bg-primary-50'

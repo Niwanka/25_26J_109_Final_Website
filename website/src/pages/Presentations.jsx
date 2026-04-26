@@ -4,27 +4,31 @@ const Presentations = () => {
   const presentations = [
     {
       title: 'Project Proposal Presentation',
-      date: 'March 2024',
+      date: 'September 2025',
       description: 'Initial pitch for the multimodal PD screening concept and TinyML integration.',
-      link: '#'
+      link: '/docs/25-26J-109-Project Presentation.pdf',
+      status: 'Available'
     },
     {
       title: 'Progress Presentation I',
-      date: 'June 2024',
+      date: 'January 2026',
       description: 'Showcasing the TinyML 1D CNN on-device inference results and wearable prototype.',
-      link: '#'
+      link: '/docs/Progress Presentation 1  25-26J-109.pdf',
+      status: 'Available'
     },
     {
       title: 'Progress Presentation II',
-      date: 'September 2024',
+      date: 'March 2026',
       description: 'Demonstration of the integrated React Native mobile client and FastAPI backend.',
-      link: '#'
+      link: '/docs/progress presentation 2 (1).pdf',
+      status: 'Available'
     },
     {
-      title: 'Final Assessment',
-      date: 'November 2024',
+      title: 'Final Presentation',
+      date: 'May 2026',
       description: 'Comprehensive demonstration of the complete NeuroLens platform and fusion results.',
-      link: '#'
+      link: '#',
+      status: 'Upcoming'
     }
   ];
 

@@ -7,34 +7,38 @@ const AboutUs = () => {
       role: 'Undergraduate Student',
       id: 'IT22093332',
       email: 'it22093332@my.sliit.lk',
-      initials: 'NP'
+      initials: 'NP',
+      image: '/images/niwanka.png'
     },
     {
       name: 'Chanuthi Savithma',
       role: 'Undergraduate Student',
       id: 'IT22551498',
       email: 'it22551498@my.sliit.lk',
-      initials: 'CS'
+      initials: 'CS',
+      image: '/images/chanuthi.jpeg'
     },
     {
       name: 'Yasasvi Vilochana',
       role: 'Undergraduate Student',
       id: 'IT22079336',
       email: 'it22079336@my.sliit.lk',
-      initials: 'YV'
+      initials: 'YV',
+      image: '/images/yasasvi.jpeg'
     },
     {
       name: 'Sriharan Saravanan',
       role: 'Undergraduate Student',
       id: 'IT22884060',
       email: 'it22884060@my.sliit.lk',
-      initials: 'SS'
+      initials: 'SS',
+      image: '/images/sriharan.jpeg'
     }
   ];
 
   const supervisors = [
-    { name: 'Prof. Samantha Thelijjagoda', role: 'Main Supervisor', email: 'samantha.t@sliit.lk' },
-    { name: 'Dr. Mahima Weerasinghe', role: 'Co-Supervisor', email: 'mahima.w@sliit.lk' }
+    { name: 'Prof. Samantha Thelijjagoda', role: 'Main Supervisor', email: 'samantha.t@sliit.lk', image: '/images/supervisor.jpeg' },
+    { name: 'Dr. Mahima Weerasinghe', role: 'Co-Supervisor', email: 'mahima.w@sliit.lk', image: '/images/co supervisor.jpeg' }
   ];
 
   return (
@@ -51,8 +55,12 @@ const AboutUs = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {team.map((member, idx) => (
             <div key={idx} className="bg-white rounded-3xl border border-gray-100 shadow-sm p-8 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="w-24 h-24 bg-primary-600 rounded-full flex items-center justify-center text-white text-3xl font-bold mb-6 shadow-lg border-4 border-white">
-                {member.initials}
+              <div className="w-24 h-24 rounded-full flex items-center justify-center mb-6 shadow-lg border-4 border-white overflow-hidden bg-primary-600">
+                {member.image ? (
+                  <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                ) : (
+                  <span className="text-white text-3xl font-bold">{member.initials}</span>
+                )}
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
               <p className="text-primary-600 font-semibold text-xs uppercase tracking-wider mb-4">{member.role}</p>
@@ -68,20 +76,28 @@ const AboutUs = () => {
         </div>
 
         {/* Supervisors Section */}
-        <div className="mb-24">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center uppercase tracking-widest">Supervised By</h2>
-          <div className="flex flex-wrap justify-center gap-8">
+        <div className="mt-24">
+          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center tracking-tight">Supervised By</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {supervisors.map((sup, idx) => (
-              <div key={idx} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex items-center min-w-[300px]">
-                <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-700 font-bold mr-4">
-                  {sup.name.split('. ').pop()[0]}
+              <div key={idx} className="bg-white rounded-3xl border border-gray-100 shadow-sm p-8 flex flex-col items-center text-center hover:shadow-lg transition-all duration-300">
+                <div className="w-24 h-24 rounded-full flex items-center justify-center mb-6 shadow-md border-4 border-gray-50 overflow-hidden bg-primary-50">
+                  {sup.image ? (
+                    <img src={sup.image} alt={sup.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <span className="text-primary-700 font-bold text-2xl">{sup.name.split('. ').pop()[0]}</span>
+                  )}
                 </div>
-                <div>
-                  <h4 className="font-bold text-gray-900">{sup.name}</h4>
-                  <p className="text-gray-500 text-xs">{sup.role}</p>
+                <div className="mb-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-1">{sup.name}</h4>
+                  <p className="text-primary-600 font-semibold text-sm">{sup.role}</p>
                 </div>
-                <a href={`mailto:${sup.email}`} className="ml-auto text-primary-600 hover:text-primary-700">
-                  <Mail size={18} />
+                <a 
+                  href={`mailto:${sup.email}`} 
+                  className="flex items-center justify-center px-6 py-2 bg-gray-50 text-gray-600 rounded-full hover:bg-primary-50 hover:text-primary-600 transition-colors text-sm font-medium border border-gray-100"
+                >
+                  <Mail size={16} className="mr-2" />
+                  {sup.email}
                 </a>
               </div>
             ))}

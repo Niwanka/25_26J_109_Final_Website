@@ -25,21 +25,20 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center">
               <span className="text-xl font-bold text-primary-600">NeuroLens</span>
-              <span className="ml-2 text-gray-400 hidden sm:block">| FYP 2025</span>
+              <span className="ml-2 text-gray-400 hidden sm:block">| FYP 2025 - 2026</span>
             </Link>
           </div>
-          
+
           {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  isActive(link.path)
-                    ? 'text-primary-600 font-semibold'
-                    : 'text-gray-600 hover:text-primary-500'
-                }`}
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive(link.path)
+                  ? 'text-primary-600 font-semibold'
+                  : 'text-gray-600 hover:text-primary-500'
+                  }`}
               >
                 {link.name}
               </Link>
@@ -67,11 +66,10 @@ const Navbar = () => {
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium ${
-                  isActive(link.path)
-                    ? 'text-primary-600 bg-primary-50'
-                    : 'text-gray-600 hover:text-primary-500 hover:bg-gray-50'
-                }`}
+                className={`block px-3 py-2 rounded-md text-base font-medium ${isActive(link.path)
+                  ? 'text-primary-600 bg-primary-50'
+                  : 'text-gray-600 hover:text-primary-500 hover:bg-gray-50'
+                  }`}
               >
                 {link.name}
               </Link>

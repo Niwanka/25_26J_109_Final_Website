@@ -1,29 +1,41 @@
-import { FileText, ExternalLink, Lock } from 'lucide-react';
+import { FileText, ExternalLink, Lock, Download, BookOpen, CheckCircle } from 'lucide-react';
 
 const Documents = () => {
   const categories = [
     {
-      title: 'Project Charters',
-      items: [
-        { title: 'Project Proposal Report', type: 'PDF', size: '2.4 MB' },
-        { title: 'Literature Review & Gap Analysis', type: 'PDF', size: '4.1 MB' },
-        { title: 'Software Requirements Specification', type: 'PDF', size: '1.8 MB' }
+      title: 'Project Proposals',
+      documents: [
+        { name: 'Individual Proposal - Niwanka (IT22093332)', status: 'Available', link: '/docs/IT22093332_RP_proposal.pdf', type: 'PDF', size: '0.9 MB' },
+        { name: 'Individual Proposal - Chanuthi (IT22551498)', status: 'Available', link: '/docs/IT22551498_Proposal_Report.pdf', type: 'PDF', size: '0.8 MB' },
+        { name: 'Individual Proposal - Yasasvi (IT22079336)', status: 'Available', link: '/docs/IT22079336_RP_proposal.pdf', type: 'PDF', size: '0.9 MB' },
+        { name: 'Individual Proposal - Sriharan (IT22884060)', status: 'Available', link: '/docs/IT22884060_RP_Propoal_Report.pdf', type: 'PDF', size: '0.8 MB' }
       ]
     },
     {
-      category: 'Research Papers',
-      icon: <BookOpen size={24} />,
-      items: [
-        { title: 'NeuroLens: Multimodal Mobile Platform (Published)', type: 'PDF', size: '3.2 MB' },
-        { title: 'TinyML for PD Tremor Quantification', type: 'PDF', size: '2.1 MB' }
+      title: 'Checklist Documents',
+      documents: [
+        { name: 'Assessment Checklist 1', status: 'Available', link: '/docs/25-26J-109.xlsx', type: 'XLSX', size: '24 KB' },
+        { name: 'Assessment Checklist 2 (Data Analysis)', status: 'Available', link: '/docs/25-26J-109_Data_Analysis_Report (1).pdf', type: 'PDF', size: '3.5 MB' }
       ]
     },
     {
-      category: 'Final Reports',
-      icon: <CheckCircle size={24} />,
-      items: [
-        { title: 'Final Research Dissertation', type: 'PDF', size: '12.5 MB' },
-        { title: 'User Manual & Technical Documentation', type: 'PDF', size: '5.4 MB' }
+      title: 'Research Papers',
+      documents: [
+        { 
+          name: 'NeuroLens: Multimodal Mobile Platform (Published)', 
+          status: 'Available', 
+          link: '/docs/NeuroLens_With_Authors.pdf', 
+          type: 'PDF', 
+          size: '1.1 MB' 
+        },
+        { name: 'TinyML for PD Tremor Quantification', status: 'Pending', link: null, type: 'PDF', size: '2.1 MB' }
+      ]
+    },
+    {
+      title: 'Final Reports',
+      documents: [
+        { name: 'Final Research Dissertation', status: 'Pending', link: null, type: 'PDF', size: '12.5 MB' },
+        { name: 'User Manual & Technical Documentation', status: 'Pending', link: null, type: 'PDF', size: '5.4 MB' }
       ]
     }
   ];
@@ -44,7 +56,7 @@ const Documents = () => {
             <FileText className="text-primary-600 w-5 h-5" />
           </div>
           <p className="text-primary-900 text-sm">
-            <span className="font-bold">Note:</span> Click "View" to open the document in Google Drive. Documents marked <span className="font-bold italic">Pending</span> will be uploaded after submission.
+            <span className="font-bold">Note:</span> Click "View" or "Download" to access the documents. Documents marked <span className="font-bold italic">Pending</span> will be uploaded after submission.
           </p>
         </div>
 
@@ -64,26 +76,40 @@ const Documents = () => {
                       </div>
                       <div>
                         <h4 className="font-bold text-gray-900 text-sm">{doc.name}</h4>
-                        <span className={`text-[10px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-full mt-1 inline-block ${
-                          doc.status === 'Available' ? 'text-green-600 bg-green-50' : 'text-gray-400 bg-gray-50'
-                        }`}>
-                          {doc.status}
-                        </span>
+                        <div className="flex items-center space-x-2 mt-1">
+                          <span className={`text-[10px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-full inline-block ${
+                            doc.status === 'Available' ? 'text-green-600 bg-green-50' : 'text-gray-400 bg-gray-50'
+                          }`}>
+                            {doc.status}
+                          </span>
+                          <span className="text-[10px] text-gray-400 font-medium">{doc.size}</span>
+                        </div>
                       </div>
                     </div>
                     
                     {doc.status === 'Available' ? (
-                      <a
-                        href={doc.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-4 py-2 bg-primary-600 text-white text-xs font-bold rounded-lg hover:bg-primary-700 transition-colors flex items-center"
-                      >
-                        View <ExternalLink size={14} className="ml-2" />
-                      </a>
+                      <div className="flex space-x-2">
+                        <a
+                          href={doc.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 text-primary-600 hover:bg-primary-50 rounded-lg transition-colors"
+                          title="View"
+                        >
+                          <ExternalLink size={20} />
+                        </a>
+                        <a
+                          href={doc.link}
+                          download
+                          className="p-2 text-primary-600 hover:bg-primary-50 rounded-lg transition-colors"
+                          title="Download"
+                        >
+                          <Download size={20} />
+                        </a>
+                      </div>
                     ) : (
-                      <button disabled className="px-4 py-2 bg-gray-100 text-gray-400 text-xs font-bold rounded-lg flex items-center cursor-not-allowed">
-                        Coming Soon <Lock size={14} className="ml-2" />
+                      <button disabled className="p-2 text-gray-300 cursor-not-allowed">
+                        <Lock size={20} />
                       </button>
                     )}
                   </div>
