@@ -22,13 +22,12 @@ const Documents = () => {
       title: 'Research Papers',
       documents: [
         { 
-          name: 'NeuroLens: Multimodal Mobile Platform (Published)', 
+          name: 'NeuroLens: Multimodal Mobile Platform', 
           status: 'Available', 
           link: '/docs/NeuroLens_With_Authors.pdf', 
           type: 'PDF', 
           size: '1.1 MB' 
-        },
-        { name: 'TinyML for PD Tremor Quantification', status: 'Pending', link: null, type: 'PDF', size: '2.1 MB' }
+        }
       ]
     },
     {
