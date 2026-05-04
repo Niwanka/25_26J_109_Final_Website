@@ -37,7 +37,7 @@ const ContactUs = () => {
                 <div>
                   <h4 className="font-bold text-slate-900 mb-1">Location</h4>
                   <p className="text-slate-600">
-                    Sri Lanka Institute of Information Technology (SLIIT), Malabe,<br/>
+                    Sri Lanka Institute of Information Technology (SLIIT), Malabe,<br />
                     Sri Lanka
                   </p>
                 </div>
@@ -48,8 +48,8 @@ const ContactUs = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900 mb-1">Source Code</h4>
-                  <a href="https://github.com/niwanka-pathirathna/NeuroLens" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-sky-600 transition-colors">
-                    github.com/niwanka-pathirathna/NeuroLens
+                  <a href="https://github.com/2526J109/NeuroLensApp" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-sky-600 transition-colors">
+                    github.com/2526J109/NeuroLensApp
                   </a>
                 </div>
               </div>
@@ -117,7 +117,7 @@ const ContactUs = () => {
                   disabled={state.submitting}
                   className="w-full bg-slate-900 text-white rounded-2xl py-5 font-bold text-lg hover:bg-slate-800 transition-all flex items-center justify-center disabled:opacity-50 group shadow-xl shadow-slate-900/10"
                 >
-                  {state.submitting ? 'Sending...' : 'Send Message'} 
+                  {state.submitting ? 'Sending...' : 'Send Message'}
                   <Send className="ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" size={20} />
                 </button>
               </form>
