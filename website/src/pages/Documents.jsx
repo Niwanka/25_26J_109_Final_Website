@@ -1,4 +1,4 @@
-import { FileText, ExternalLink, Lock, Download, BookOpen, CheckCircle } from 'lucide-react';
+import { FileText, ExternalLink, Lock, Download } from 'lucide-react';
 
 const Documents = () => {
   const categories = [
@@ -15,19 +15,16 @@ const Documents = () => {
       title: 'Checklist Documents',
       documents: [
         { name: 'Assessment Checklist 1', status: 'Available', link: '/docs/25-26J-109.xlsx', type: 'XLSX', size: '24 KB' },
-        { name: 'Assessment Checklist 2 (Data Analysis)', status: 'Available', link: '/docs/25-26J-109_Data_Analysis_Report (1).pdf', type: 'PDF', size: '3.5 MB' }
+        { name: 'Assessment Checklist 2 (Data Analysis)', status: 'Available', link: '/docs/25-26J-109_Data_Analysis_Report (1).pdf', type: 'PDF', size: '3.5 MB' },
+        { name: 'Assessment Checklist 3 (MLOps Report)', status: 'Available', link: '/docs/25-26J-109_MLOps Report.pdf', type: 'PDF', size: '2.1 MB' },
+        { name: 'Assessment Checklist 4 (Ethical Analysis Report)', status: 'Available', link: '/docs/25-26J-109_Ethical Analysis Report.pdf', type: 'PDF', size: '1.4 MB' }
       ]
     },
     {
       title: 'Research Papers',
       documents: [
-        { 
-          name: 'NeuroLens: Multimodal Mobile Platform', 
-          status: 'Available', 
-          link: '/docs/NeuroLens_With_Authors.pdf', 
-          type: 'PDF', 
-          size: '1.1 MB' 
-        }
+        { name: 'I2CACIS 2026: NeuroLens - Multimodal Mobile Platform', status: 'Available', link: '/docs/I2CACIS2026_NeuroLens__A_Multimodal_Mobile_Platform_for_Early_ (1).pdf', type: 'PDF', size: '1.2 MB' },
+        { name: 'Multimodal Fusion Architecture (Upcoming Publication)', status: 'Pending', link: null, type: 'PDF', size: '1.5 MB' }
       ]
     },
     {
@@ -40,76 +37,53 @@ const Documents = () => {
   ];
 
   return (
-    <div className="flex flex-col w-full min-h-screen">
-      {/* Page Hero */}
-      <section className="bg-gradient-to-r from-primary-700 to-primary-600 text-white py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Documents</h1>
-          <p className="text-xl text-primary-100 max-w-2xl">Access all project documentation, reports, and technical specifications.</p>
-        </div>
-      </section>
+    <div className="flex flex-col w-full py-32 bg-brand-light">
+      {/* Section Header */}
+      <div className="max-w-7xl mx-auto px-4 mb-24 text-center">
+        <h2 className="section-heading mb-4 text-slate-900">Research Documents</h2>
+        <div className="w-16 h-1 bg-sky-600 mx-auto rounded-full mb-6"></div>
+        <p className="section-subheading mx-auto">Access formal documentation, technical reports, and peer-reviewed outputs.</p>
+      </div>
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="bg-primary-50 border border-primary-100 rounded-2xl p-6 mb-12 flex items-start">
-          <div className="p-2 bg-white rounded-lg shadow-sm mr-4">
-            <FileText className="text-primary-600 w-5 h-5" />
-          </div>
-          <p className="text-primary-900 text-sm">
-            <span className="font-bold">Note:</span> Click "View" or "Download" to access the documents. Documents marked <span className="font-bold italic">Pending</span> will be uploaded after submission.
-          </p>
-        </div>
-
-        <div className="space-y-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="space-y-24">
           {categories.map((category, idx) => (
             <div key={idx}>
-              <h2 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
-                <span className="w-1.5 h-6 bg-primary-600 rounded-full mr-3"></span>
-                {category.title}
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <h3 className="text-xl font-bold text-slate-900 mb-8 flex items-center">
+                 <span className="w-6 h-1 bg-sky-600 mr-4 rounded-full"></span>
+                 {category.title}
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {category.documents.map((doc, docIdx) => (
-                  <div key={docIdx} className="bg-white border border-gray-100 rounded-2xl p-6 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow">
-                    <div className="flex items-center space-x-4">
-                      <div className={`p-3 rounded-xl ${doc.status === 'Available' ? 'bg-primary-50 text-primary-600' : 'bg-gray-50 text-gray-400'}`}>
-                        <FileText size={20} />
+                  <div key={docIdx} className="p-8 bg-white border border-slate-100 rounded-3xl hover:border-sky-500 hover:shadow-xl transition-all flex items-start justify-between">
+                    <div className="flex items-start space-x-5">
+                      <div className={`p-4 rounded-2xl ${doc.status === 'Available' ? 'bg-sky-50 text-sky-600' : 'bg-slate-50 text-slate-300'}`}>
+                        <FileText size={24} />
                       </div>
                       <div>
-                        <h4 className="font-bold text-gray-900 text-sm">{doc.name}</h4>
-                        <div className="flex items-center space-x-2 mt-1">
-                          <span className={`text-[10px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-full inline-block ${
-                            doc.status === 'Available' ? 'text-green-600 bg-green-50' : 'text-gray-400 bg-gray-50'
+                        <h4 className="font-bold text-slate-900 text-sm mb-2">{doc.name}</h4>
+                        <div className="flex items-center space-x-3">
+                          <span className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full ${
+                            doc.status === 'Available' ? 'bg-emerald-50 text-emerald-600' : 'bg-slate-50 text-slate-400'
                           }`}>
                             {doc.status}
                           </span>
-                          <span className="text-[10px] text-gray-400 font-medium">{doc.size}</span>
+                          <span className="text-xs text-slate-400 font-medium">{doc.size}</span>
                         </div>
                       </div>
                     </div>
                     
                     {doc.status === 'Available' ? (
-                      <div className="flex space-x-2">
-                        <a
-                          href={doc.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-2 text-primary-600 hover:bg-primary-50 rounded-lg transition-colors"
-                          title="View"
-                        >
+                      <div className="flex space-x-1">
+                        <a href={doc.link} target="_blank" rel="noopener noreferrer" className="p-2 text-slate-400 hover:text-sky-600 transition-colors">
                           <ExternalLink size={20} />
                         </a>
-                        <a
-                          href={doc.link}
-                          download
-                          className="p-2 text-primary-600 hover:bg-primary-50 rounded-lg transition-colors"
-                          title="Download"
-                        >
+                        <a href={doc.link} download className="p-2 text-slate-400 hover:text-sky-600 transition-colors">
                           <Download size={20} />
                         </a>
                       </div>
                     ) : (
-                      <button disabled className="p-2 text-gray-300 cursor-not-allowed">
-                        <Lock size={20} />
-                      </button>
+                      <Lock size={20} className="text-slate-200 mt-1" />
                     )}
                   </div>
                 ))}

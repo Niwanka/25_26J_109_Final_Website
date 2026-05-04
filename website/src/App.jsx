@@ -1,4 +1,3 @@
-import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -11,18 +10,30 @@ import ContactUs from './pages/ContactUs';
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen bg-white text-gray-900 font-sans antialiased">
+    <div className="flex flex-col min-h-screen bg-brand-light text-slate-800 font-sans antialiased">
       <Navbar />
-      <main className="flex-grow pt-16">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/domain" element={<Domain />} />
-          <Route path="/milestones" element={<Milestones />} />
-          <Route path="/documents" element={<Documents />} />
-          <Route path="/presentations" element={<Presentations />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/contact" element={<ContactUs />} />
-        </Routes>
+      <main className="flex-grow">
+        <section id="home">
+          <Home />
+        </section>
+        <section id="domain">
+          <Domain />
+        </section>
+        <section id="milestones">
+          <Milestones />
+        </section>
+        <section id="documents">
+          <Documents />
+        </section>
+        <section id="presentations">
+          <Presentations />
+        </section>
+        <section id="about">
+          <AboutUs />
+        </section>
+        <section id="contact">
+          <ContactUs />
+        </section>
       </main>
       <Footer />
     </div>

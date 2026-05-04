@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
+
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white pt-16 pb-8">
+    <footer className="bg-gray-900 border-t border-white/5 text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Project Info */}
@@ -17,10 +17,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link to="/domain" className="text-gray-400 hover:text-white transition-colors text-sm">Domain</Link></li>
-              <li><Link to="/milestones" className="text-gray-400 hover:text-white transition-colors text-sm">Milestones</Link></li>
-              <li><Link to="/documents" className="text-gray-400 hover:text-white transition-colors text-sm">Documents</Link></li>
-              <li><Link to="/presentations" className="text-gray-400 hover:text-white transition-colors text-sm">Presentations</Link></li>
+              <li><a href="#domain" className="text-gray-400 hover:text-white transition-colors text-sm">Domain</a></li>
+              <li><a href="#milestones" className="text-gray-400 hover:text-white transition-colors text-sm">Milestones</a></li>
+              <li><a href="#documents" className="text-gray-400 hover:text-white transition-colors text-sm">Documents</a></li>
+              <li><a href="#presentations" className="text-gray-400 hover:text-white transition-colors text-sm">Presentations</a></li>
             </ul>
           </div>
 
@@ -28,7 +28,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li>it22093332@my.sliit.lk</li>
+              <li><a href="mailto:neurolens26@gmail.com" className="hover:text-white transition-colors">neurolens26@gmail.com</a></li>
               <li>Department of Computer Science</li>
               <li>Sri Lanka Institute of Information Technology (SLIIT)</li>
             </ul>

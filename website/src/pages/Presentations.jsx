@@ -24,63 +24,56 @@ const Presentations = () => {
       status: 'Available'
     },
     {
-      title: 'Final Presentation',
-      date: 'May 2026',
-      description: 'Comprehensive demonstration of the complete NeuroLens platform and fusion results.',
+      title: 'Final Presentation & Viva',
+      date: 'June 2026',
+      description: 'The final comprehensive demonstration and methodology defense of the NeuroLens platform.',
       link: '#',
-      status: 'Upcoming'
+      status: 'Ready'
     }
   ];
 
   return (
-    <div className="flex flex-col w-full min-h-screen">
-      {/* Page Hero */}
-      <section className="bg-gradient-to-r from-primary-700 to-primary-600 text-white py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Presentations</h1>
-          <p className="text-xl text-primary-100 max-w-2xl">Visual summaries and slide decks from our key project assessments.</p>
-        </div>
-      </section>
+    <div className="flex flex-col w-full py-32 bg-brand-light border-y border-sky-100">
+      {/* Section Header */}
+      <div className="max-w-7xl mx-auto px-4 mb-24 text-center">
+        <h2 className="section-heading mb-4 text-slate-900">Presentations</h2>
+        <div className="w-24 h-1 bg-sky-600 mx-auto rounded-full mb-6"></div>
+        <p className="section-subheading mx-auto">Visual summaries and slide decks from key project assessment phases.</p>
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {presentations.map((p, idx) => (
-            <div key={idx} className="group flex flex-col bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="aspect-video bg-gray-100 relative overflow-hidden">
-                {p.image ? (
-                   <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80" />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gray-50">
-                    <Presentation size={48} className="text-gray-200" />
-                  </div>
-                )}
+            <div key={idx} className="flex flex-col bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="aspect-video bg-slate-900 flex items-center justify-center p-8 relative">
+                <Presentation size={48} className="text-white/20" />
                 <div className="absolute top-4 right-4">
-                  <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
-                    p.status === 'Available' ? 'bg-green-500 text-white' : 'bg-gray-400 text-white'
+                  <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest ${
+                    p.status === 'Available' ? 'bg-emerald-500 text-white' : 'bg-slate-400 text-white'
                   }`}>
                     {p.status}
                   </span>
                 </div>
               </div>
               
-              <div className="p-6 flex flex-col flex-grow">
-                <div className="flex items-center text-gray-400 text-xs mb-3">
+              <div className="p-8 flex flex-col flex-grow">
+                <div className="flex items-center text-slate-400 text-xs font-bold mb-4">
                   <Calendar size={14} className="mr-2" />
                   {p.date}
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-6 flex-grow">{p.title}</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-8 flex-grow">{p.title}</h3>
                 
                 {p.status === 'Available' ? (
                   <a
                     href={p.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-3 bg-primary-600 text-white rounded-xl font-bold text-sm hover:bg-primary-700 transition-colors flex items-center justify-center"
+                    className="w-full py-4 bg-sky-600 text-white rounded-xl font-bold text-sm hover:bg-sky-700 transition-all flex items-center justify-center shadow-lg shadow-sky-600/20"
                   >
                     View Slides <ExternalLink size={16} className="ml-2" />
                   </a>
                 ) : (
-                  <button disabled className="w-full py-3 bg-gray-100 text-gray-400 rounded-xl font-bold text-sm flex items-center justify-center cursor-not-allowed">
+                  <button disabled className="w-full py-4 bg-slate-100 text-slate-400 rounded-xl font-bold text-sm flex items-center justify-center cursor-not-allowed">
                     Coming Soon
                   </button>
                 )}
