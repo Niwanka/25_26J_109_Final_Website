@@ -1,4 +1,4 @@
-import { Mail, ShieldCheck } from 'lucide-react';
+import { Mail, ShieldCheck, ExternalLink } from 'lucide-react';
 
 const AboutUs = () => {
   const team = [
@@ -37,8 +37,8 @@ const AboutUs = () => {
   ];
 
   const supervisors = [
-    { name: 'Prof. Samantha Thelijjagoda', role: 'Main Supervisor', email: 'samantha.t@sliit.lk', image: '/images/supervisor.jpeg' },
-    { name: 'Dr. Mahima Weerasinghe', role: 'Co-Supervisor', email: 'mahima.w@sliit.lk', image: '/images/co supervisor.jpeg' }
+    { name: 'Prof. Samantha Thelijjagoda', role: 'Main Supervisor', email: 'samantha.t@sliit.lk', image: '/images/supervisor.jpeg', sliitUrl: 'https://www.sliit.lk/academic/academic-staff/samantha.t' },
+    { name: 'Dr. Mahima Weerasinghe', role: 'Co-Supervisor', email: 'mahima.w@sliit.lk', image: '/images/co supervisor.jpeg', sliitUrl: 'https://www.sliit.lk/academic/academic-staff/mahima.w' }
   ];
 
   return (
@@ -82,9 +82,16 @@ const AboutUs = () => {
                 <div>
                   <h4 className="text-xl font-bold text-slate-900 mb-1">{sup.name}</h4>
                   <p className="text-sky-600 font-bold text-xs uppercase tracking-widest mb-4">{sup.role}</p>
-                  <a href={`mailto:${sup.email}`} className="flex items-center text-slate-400 hover:text-sky-600 transition-colors text-sm font-medium">
-                    <Mail size={14} className="mr-2" /> {sup.email}
-                  </a>
+                  <div className="flex flex-col gap-2">
+                    <a href={`mailto:${sup.email}`} className="flex items-center text-slate-400 hover:text-sky-600 transition-colors text-sm font-medium">
+                      <Mail size={14} className="mr-2" /> {sup.email}
+                    </a>
+                    {sup.sliitUrl && (
+                      <a href={sup.sliitUrl} target="_blank" rel="noopener noreferrer" className="flex items-center text-slate-400 hover:text-sky-600 transition-colors text-sm font-medium">
+                        <ExternalLink size={14} className="mr-2" /> SLIIT Profile
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
