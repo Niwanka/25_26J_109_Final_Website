@@ -156,13 +156,27 @@ const Domain = () => {
 
           <section id="technologies" className="scroll-mt-32 p-10 bg-white rounded-[2.5rem] border border-sky-100 shadow-sm">
             <h3 className="text-2xl font-bold text-slate-900 mb-8 flex items-center">
-               <span className="w-8 h-px bg-sky-600 mr-4"></span> Technologies
+               <span className="w-8 h-px bg-sky-600 mr-4"></span> Technologies & Tools
             </h3>
-            <div className="flex flex-wrap gap-3">
-              {['React Native', 'Expo', 'FastAPI', 'TinyML', 'ESP32', '1D CNN', 'BLE', 'Google Firestore', 'Praat', 'Python'].map((tech) => (
-                <span key={tech} className="px-5 py-2 bg-brand-light text-sky-700 font-bold rounded-full text-xs border border-sky-100">
-                  {tech}
-                </span>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8">
+              {[
+                { name: 'React Native', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+                { name: 'Python', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+                { name: 'FastAPI', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg' },
+                { name: 'Google Cloud', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg' },
+                { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+                { name: 'Firebase', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg' },
+                { name: 'TensorFlow', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg' },
+                { name: 'Arduino', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg' },
+                { name: 'Github', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
+                { name: 'Vite', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg' }
+              ].map((tech) => (
+                <div key={tech.name} className="flex flex-col items-center group">
+                  <div className="w-16 h-16 p-3 bg-brand-light rounded-2xl border border-sky-50 flex items-center justify-center mb-3 transition-all duration-300 group-hover:shadow-lg group-hover:border-sky-200 group-hover:-translate-y-1">
+                    <img src={tech.logo} alt={tech.name} className="w-full h-full object-contain transition-all duration-300" />
+                  </div>
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest group-hover:text-sky-600 transition-colors">{tech.name}</span>
+                </div>
               ))}
             </div>
           </section>

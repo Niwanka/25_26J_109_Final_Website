@@ -98,7 +98,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* Quick Links Section */}
       <section className="py-24 px-6 bg-brand-light">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -131,6 +130,7 @@ const Home = () => {
           </a>
         </div>
       </section>
+
     </div>
   );
 };
